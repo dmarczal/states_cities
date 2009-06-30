@@ -1,0 +1,25 @@
+<% form_for(@person) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= label_tag :state %><br />
+    <%= collection_select(:state, :id, State.all, :id, :name, {:prompt => true})  %>
+  </p>
+
+  <%= observe_field('state_id', :frequency => 0.25, :update => 'cities_div',
+                    :url => {:action => :load_cities}, :with => "'state_id='+value")%>
+
+  <%= f.label :city %>
+  <div id='cities_div'>
+    <%= render :file => 'people/load_cities' %>
+  </div>
+
+  <p>
+    <%= f.submit type %>
+  </p>
+<% end %>

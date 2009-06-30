@@ -1,0 +1,14 @@
+*~
+db/schema.rb
+tmp/*
+log/*
+.DS_Store
+config/deploy.rb
+*.sqlite3
+public/assets/*
+
+
+
+
+
+

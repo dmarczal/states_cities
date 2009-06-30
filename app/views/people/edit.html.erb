@@ -1,0 +1,9 @@
+<h1>Editing person</h1>
+
+<%= render :partial => 'form', :locals => {:type => "Update"} %>
+
+<p>
+  <%= link_to "Show", people_path(@notice) %>
+  |
+  <%= link_to "Back to all", people_path %>
+</p>
